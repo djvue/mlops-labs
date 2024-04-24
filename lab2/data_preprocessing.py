@@ -79,7 +79,7 @@ def make_preprocessors() -> ColumnTransformer:
 
 
 def run_preprocess():
-    df = pd.read_csv("data/train.csv")
+    df = pd.read_csv("data/data.csv")
 
     df = df[df[Y_COLUMN].notna()]
 
