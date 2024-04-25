@@ -1,0 +1,47 @@
+podTemplate(containers: [
+    containerTemplate(
+        name: 'python',
+        image: 'python:slim',
+        command: 'sleep',
+        args: '30d')
+  ]) {
+
+    node(POD_LABEL) {
+        stage('Train and test ML model') {
+            git url: 'https://github.com/djvue/mlops-labs.git', branch: 'main'
+            container('python') {
+                stage('Install python packages') {
+                    sh '''
+                    cd lab2
+                    pip install -r requirements.txt
+                    '''
+                }
+                stage('Download dataset') {
+                    sh '''
+                    cd lab2
+                    python data_loading.py
+                    '''
+                }
+                stage('Preprocess data') {
+                    sh '''
+                    cd lab2
+                    python data_preprocessing.py
+                    '''
+                }
+                stage('Model training') {
+                    sh '''
+                    cd lab2
+                    python model_training.py
+                    '''
+                }
+                stage('Model testing') {
+                    sh '''
+                    cd lab2
+                    python model_testing.py
+                    '''
+                }
+            }
+        }
+
+    }
+}
