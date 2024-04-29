@@ -1,2 +1,5 @@
+[core]
+    remote = google
 ['remote "google"']
     url = gdrive://1mRZSgmbR3tgKmdNN1VZa2TvpNG7oajV9/mlops-lab4
+    gdrive_acknowledge_abuse = true
