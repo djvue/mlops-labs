@@ -9,7 +9,7 @@
 
 ## DVC
 
-Результат каждого шага зафиксирован в DVC.
+Результат каждого шага зафиксирован в DVC и git.
 
 DVC привязан к google:
 https://drive.google.com/drive/folders/1MYqLkrON3SsLHTyNkP_shRiLZ1qsgTAV?usp=sharing
