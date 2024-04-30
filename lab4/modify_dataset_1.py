@@ -1,8 +1,7 @@
-import os
-from catboost.datasets import titanic
+import pandas as pd
 
-titanic_train, titanic_test = titanic()
+df = pd.read_csv("data/titanic_train.csv")
 
-os.makedirs("data", exist_ok=True)
-titanic_train.to_csv("data/titanic_train.csv", index=False)
-titanic_test.to_csv("data/titanic_train.csv", index=False)
+df = df.drop([1, 2, 3])
+
+df = df.to_csv("data/titanic_train.csv", index=False)
